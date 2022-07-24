@@ -37,8 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 	Route::resource('category', 'CategoryController');
-	Route::resource('invoice', 'InvoiceController');
-	Route::get('invoice/{product}/stock', 'InvoiceController@loadStock')->name('loadStock');
-
+	Route::resource('company', 'CompanyController');
+	Route::resource('vehicle', 'VehicleController');
+	Route::resource('problem', 'ProblemController');
+	Route::resource('repairing_requet', 'RepairingRequetsController');
 });
-
