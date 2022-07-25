@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Problem extends Model
 {
     use HasFactory;
+     /** @var array */
+     protected $fillable = [
+        'title',
+        'description',
+        'video_url',
+    ];
 }

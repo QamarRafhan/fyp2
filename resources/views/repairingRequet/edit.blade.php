@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'product.create', 'titlePage' => __('Create Product')])
+@extends('layouts.app', ['activePage' => 'repairingRequets.create', 'titlePage' => __('Create repairingRequet')])
 
 @section('content')
 <div class="content">
@@ -7,17 +7,17 @@
     <div class="row">
       <div class="col-md-12">
 
-        @if($product->id)
-        <form method="post" action="{{ route('product.update', ['product' => $product->id]) }}" class="form-horizontal"  enctype="multipart/form-data">
+        @if($repairingRequet->id)
+        <form method="post" action="{{ route('repairing_requet.update', ['repairingRequet' => $repairingRequet->id]) }}" class="form-horizontal"  enctype="multipart/form-data">
           @method('PUT')
 
           @else
-          <form method="post" action="{{ route('product.store') }}" class="form-horizontal"  enctype="multipart/form-data">
+          <form method="post" action="{{ route('repairing_requet.store') }}" class="form-horizontal"  enctype="multipart/form-data">
             @endif
             @csrf
             <div class="card ">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">{{ __('Product') }}</h4>
+                <h4 class="card-title">{{ __('repairingRequet') }}</h4>
                 <p class="card-category">{{ __('create') }}</p>
               </div>
               <div class="card-body ">
@@ -38,48 +38,34 @@
                   <label class="col-sm-2 col-form-label" for="title">{{ __('Title') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" type="title" name="title" id="title" placeholder="{{ __('Title') }}" value="{{old('title', $product->title)}}" required />
+                      <input class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" type="title" name="title" id="title" placeholder="{{ __('Title') }}" value="{{old('title', $repairingRequet->title)}}" required />
                       @if ($errors->has('title'))
                       <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('title') }}</span>
                       @endif
                     </div>
                   </div>
                 </div>
-                 <div class="row">
-                  <label class="col-sm-2 col-form-label" for="unit">{{ __('Unit') }}</label>
-                  <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('unit') ? ' has-danger' : '' }}">
-                      <select class="form-control{{ $errors->has('unit') ? ' is-invalid' : '' }}" type="text" name="unit" id="unit" placeholder="{{ __('Saleman Kg') }}" value="{{old('unit', $product->unit)}}" required />
-                        <option value="">Select One</option>
-                        <option value="Kg"{{($product->unit == 'Kg' ? 'selected': '')}}>Kg</option>
-                        <option value="Meter" {{($product->unit == 'Meter' ? 'selected': '')}}>Meter</option>
-                        <option value="Gram" {{($product->unit == 'Gram' ? 'selected': '')}}>Gram</option>
-                        <option value="Milligram" {{($product->unit == 'Milligram' ? 'selected': '')}}>Milligram</option>
-                         <option value="Pound" {{($product->unit == 'Pound' ? 'selected': '')}}>Pound</option>
-                    </select>
-                      @if ($errors->has('unit'))
-                      <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('unit') }}</span>
-                      @endif
-                    </div>
-                  </div>
-                </div>
-                 <div class="row">
+
+                <div class="row">
                   <label class="col-sm-2 col-form-label" for="description">{{ __('Description') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
-                      <input class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" type="description" name="description" id="description" placeholder="{{ __('Description') }}" value="{{old('description', $product->description)}}" required />
+                      <input class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" type="description" name="description" id="description" placeholder="{{ __('Description') }}" value="{{old('description', $repairingRequet->description)}}" required />
                       @if ($errors->has('description'))
                       <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('description') }}</span>
                       @endif
                     </div>
                   </div>
                 </div>
-
-
                 <div class="row">
-                  <label class="col-sm-2 col-form-label" for="images">{{ __('Select image') }}</label>
+                  <label class="col-sm-2 col-form-label" for="video">{{ __('Video Url') }}</label>
                   <div class="col-sm-7">
-                  <input class='images-uplaod' type="file" name="images" />
+                    <div class="form-group{{ $errors->has('video') ? ' has-danger' : '' }}">
+                      <input class="form-control{{ $errors->has('video') ? ' is-invalid' : '' }}" type="video" name="video_url" id="video" placeholder="{{ __('Video Url') }}" value="{{old('video', $repairingRequet->video_url)}}" required />
+                      @if ($errors->has('video'))
+                      <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('video') }}</span>
+                      @endif
+                    </div>
                   </div>
                 </div>
              </div>
@@ -87,12 +73,12 @@
      <div class="card-footer ml-auto mr-auto ">
               <div class="row">
                 <div class="col-4">
-                  <a href="{{route('product.index')}}" class="btn btn-primary">{{ __('Cancel')}}</a>
+                  <a href="{{route('repairing_requet.index')}}" class="btn btn-primary">{{ __('Cancel')}}</a>
                 </div>
                 <div class="col-4 text-center">
                 </div>
                 <div class="col-4  text-right">
-                  <button type="submit" class="btn btn-primary">{{ ($product->id)? __('Update'): __('Create') }}</button>
+                  <button type="submit" class="btn btn-primary">{{ ($repairingRequet->id)? __('Update'): __('Create') }}</button>
                 </div>
 
               </div>

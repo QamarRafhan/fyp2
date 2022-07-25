@@ -41,9 +41,6 @@
                       Description
                     </th>
                     <th>
-                      Unit
-                    </th>
-                    <th>
                       Creation date
                     </th>
                     <th class="text-right">
@@ -69,22 +66,19 @@
                       {{ ucfirst($single->description) }}
                     </td>
                     <td>
-                      {{ ucfirst($single->unit) }}
-                    </td>
-                    <td>
                       {{$single->created_at}}
                     </td>
                     <td class="td-actions text-right">
 
-                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('product.edit', ['product'=> $single->id])}}" data-original-title="" title="">
+                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('company.edit', ['company'=> $single->id])}}" data-original-title="" title="">
                         <i class="material-icons">edit</i>
                         <div class="ripple-container"></div>
                       </a>
-                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('product.show', ['product'=> $single->id])}}" data-original-title="" title="">
+                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('company.show', ['company'=> $single->id])}}" data-original-title="" title="">
                         <i class="material-icons">visibility</i>
                         <div class="ripple-container"></div>
                       </a>
-                      <form action="{{route('product.destroy', ['product' =>$single->id])}}" method="post" class="d-inline-block">
+                      <form action="{{route('company.destroy', ['company' =>$single->id])}}" method="post" class="d-inline-block">
                         <button type="submit" rel="tooltip" class="btn btn-success btn-link" data-original-title="" title="">
                           <i class="material-icons">delete</i>
                           <div class="ripple-container"></div>

@@ -46,6 +46,7 @@ class RepairingRequetsController extends Controller
 
         $data = $request->only($repairingRequet->getFillable());
         $repairingRequet->fill($data);
+        // dd($repairingRequet);
         $repairingRequet->save();
         return back()->withStatusSuccess(__('RepairingRequet created successfully.'));
     }

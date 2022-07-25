@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'problem-management', 'titlePage' => __('RepairingRequets listing')])
+@extends('layouts.app', ['activePage' => 'repairingRequets-management', 'titlePage' => __('RepairingRequets listing')])
 
 @section('content')
 <div class="content">
@@ -26,7 +26,7 @@
             @endif
             <div class="row">
               <div class="col-12 text-right">
-                <a href="{{route('problem.create')}}" class="btn btn-sm btn-primary">Add Repairing Requet</a>
+                <a href="{{route('repairing_requet.create')}}" class="btn btn-sm btn-primary">Add Repairing Requet</a>
               </div>
             </div>
             <div class="table-responsive">
@@ -41,7 +41,7 @@
                       Description
                     </th>
                     <th>
-                      Unit
+                      Video
                     </th>
                     <th>
                       Creation date
@@ -69,22 +69,22 @@
                       {{ ucfirst($single->description) }}
                     </td>
                     <td>
-                      {{ ucfirst($single->unit) }}
+                      {{ ucfirst($single->video_url) }}
                     </td>
                     <td>
                       {{$single->created_at}}
                     </td>
                     <td class="td-actions text-right">
 
-                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('product.edit', ['product'=> $single->id])}}" data-original-title="" title="">
+                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('repairing_requet.edit', ['repairing_requet'=> $single->id])}}" data-original-title="" title="">
                         <i class="material-icons">edit</i>
                         <div class="ripple-container"></div>
                       </a>
-                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('product.show', ['product'=> $single->id])}}" data-original-title="" title="">
+                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('repairing_requet.show', ['repairing_requet'=> $single->id])}}" data-original-title="" title="">
                         <i class="material-icons">visibility</i>
                         <div class="ripple-container"></div>
                       </a>
-                      <form action="{{route('product.destroy', ['product' =>$single->id])}}" method="post" class="d-inline-block">
+                      <form action="{{route('repairing_requet.destroy', ['repairing_requet' =>$single->id])}}" method="post" class="d-inline-block">
                         <button type="submit" rel="tooltip" class="btn btn-success btn-link" data-original-title="" title="">
                           <i class="material-icons">delete</i>
                           <div class="ripple-container"></div>

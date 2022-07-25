@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'vehicle-management', 'titlePage' => __('Vehicles listing')])
+@extends('layouts.app', ['activePage' => 'vehicle-management', 'titlePage' => __('vehicles listing')])
 
 @section('content')
 <div class="content">
@@ -8,8 +8,8 @@
 
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title ">Vehicle</h4>
-            <p class="card-category"> Here you can manage Vehicle</p>
+            <h4 class="card-title ">vehicle</h4>
+            <p class="card-category"> Here you can manage vehicle</p>
           </div>
           <div class="card-body">
             @if (session('status_success'))
@@ -26,7 +26,7 @@
             @endif
             <div class="row">
               <div class="col-12 text-right">
-                <a href="{{route('vehicle.create')}}" class="btn btn-sm btn-primary">Add Vehicle</a>
+                <a href="{{route('vehicle.create')}}" class="btn btn-sm btn-primary">Add vehicle</a>
               </div>
             </div>
             <div class="table-responsive">
@@ -41,7 +41,7 @@
                       Description
                     </th>
                     <th>
-                      Unit
+                      Model
                     </th>
                     <th>
                       Creation date
@@ -69,22 +69,22 @@
                       {{ ucfirst($single->description) }}
                     </td>
                     <td>
-                      {{ ucfirst($single->unit) }}
+                      {{ ucfirst($single->model) }}
                     </td>
                     <td>
                       {{$single->created_at}}
                     </td>
                     <td class="td-actions text-right">
 
-                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('product.edit', ['product'=> $single->id])}}" data-original-title="" title="">
+                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('vehicle.edit', ['vehicle'=> $single->id])}}" data-original-title="" title="">
                         <i class="material-icons">edit</i>
                         <div class="ripple-container"></div>
                       </a>
-                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('product.show', ['product'=> $single->id])}}" data-original-title="" title="">
+                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('vehicle.show', ['vehicle'=> $single->id])}}" data-original-title="" title="">
                         <i class="material-icons">visibility</i>
                         <div class="ripple-container"></div>
                       </a>
-                      <form action="{{route('product.destroy', ['product' =>$single->id])}}" method="post" class="d-inline-block">
+                      <form action="{{route('vehicle.destroy', ['vehicle' =>$single->id])}}" method="post" class="d-inline-block">
                         <button type="submit" rel="tooltip" class="btn btn-success btn-link" data-original-title="" title="">
                           <i class="material-icons">delete</i>
                           <div class="ripple-container"></div>

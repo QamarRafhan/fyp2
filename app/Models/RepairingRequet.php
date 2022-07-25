@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class RepairingRequet extends Model
 {
     use HasFactory;
+     /** @var array */
+     protected $fillable = [
+        'title',
+        'description',
+        'video_url',
+    ];
 }

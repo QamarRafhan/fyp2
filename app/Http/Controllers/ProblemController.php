@@ -21,6 +21,7 @@ class ProblemController extends Controller
                     config('app.global.record_per_page')
             )
         ]);
+        
     }
 
     /**
@@ -43,7 +44,6 @@ class ProblemController extends Controller
     public function store(Request $request)
     {
         $problem = new Problem();
-
         $data = $request->only($problem->getFillable());
         $problem->fill($data);
         $problem->save();
