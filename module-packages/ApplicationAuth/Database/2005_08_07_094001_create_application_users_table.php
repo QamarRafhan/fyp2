@@ -18,9 +18,8 @@ class CreateApplicationUsersTable extends Migration
             function (Blueprint $table) {
                 $table->id();
                 $table->string('locale', 15)->default('en');
-                $table->string('username')->unique();
                 $table->string('name');
-                $table->string('email')->nullable();
+                $table->string('email')->unique();
                 $table->timestamp('email_verified_at')->nullable();
                 $table->string('password');
                 $table->string('reset_password_token')->nullable();
