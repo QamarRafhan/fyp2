@@ -1,0 +1,41 @@
+{
+    "name": "laraartisan/application-auth-module",
+    "description": "Frontend Application Authentication Module with Guest accounts and Social login",
+    "type": "laravel-module",
+    "authors": [
+        {
+            "name": "irfan",
+            "email": "irfan@laraartisan.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/bus": "^8.38",
+        "illuminate/config": "^8.38",
+        "illuminate/contracts": "^8.38",
+        "illuminate/encryption": "^8.38",
+        "illuminate/database": "^8.38",
+        "illuminate/hashing": "^8.38",
+        "illuminate/http": "^8.38",
+        "illuminate/notifications": "^8.38",
+        "illuminate/routing": "^8.38",
+        "illuminate/support": "^8.38",
+        "illuminate/validation": "^8.38",
+        "jdenticon/jdenticon": "^1.0.0",
+        "laravel/ui": "^v3.0.0",
+        "symfony/http-foundation": "^5.0",
+        "tymon/jwt-auth": "^1.0.0",
+        "felixfbecker/advanced-json-rpc": "^3.2.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {}
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\ApplicationAuth\\": ""
+        }
+    }
+}
