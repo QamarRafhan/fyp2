@@ -21,6 +21,7 @@
         "spatie/laravel-medialibrary": "^9.0.0",
         "joshbrw/laravel-module-installer": "^2.0",
         "nwidart/laravel-modules": "^8.2"
+        
     },
     "require-dev": {
         "facade/ignition": "^2.5",
