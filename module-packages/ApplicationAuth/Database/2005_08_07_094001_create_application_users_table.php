@@ -24,7 +24,7 @@ class CreateApplicationUsersTable extends Migration
                 $table->string('password');
                 $table->string('reset_password_token')->nullable();
                 $table->timestamp('reset_password_token_expires')->nullable();
-                $table->boolean('guest');
+                $table->boolean('guest')->default(0);
                 $table->string('role')->nullable();
                 $table->boolean('is_active')->default(true);
                 $table->boolean('allow_notifications')->default(true);
