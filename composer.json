@@ -42,7 +42,7 @@
             "Traits\\": "traits/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Modules\\": "modules/"
+            "Modules\\": "Modules/"
         }
     },
     "autoload-dev": {
@@ -69,7 +69,7 @@
         "laravel": {
             "dont-discover": []
         },
-        "module-dir": "modules"
+        "module-dir": "Modules"
     },
     "config": {
         "optimize-autoloader": true,
