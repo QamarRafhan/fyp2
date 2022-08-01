@@ -8,11 +8,11 @@
       <div class="col-md-12">
 
         @if($vehicle->id)
-        <form method="post" action="{{ route('vehicle.update', ['vehicle' => $vehicle->id]) }}" class="form-horizontal"  enctype="multipart/form-data">
+        <form method="post" action="{{ route('vehicle.update', ['vehicle' => $vehicle->id]) }}" class="form-horizontal" enctype="multipart/form-data">
           @method('PUT')
 
           @else
-          <form method="post" action="{{ route('vehicle.store') }}" class="form-horizontal"  enctype="multipart/form-data">
+          <form method="post" action="{{ route('vehicle.store') }}" class="form-horizontal" enctype="multipart/form-data">
             @endif
             @csrf
             <div class="card ">
@@ -33,7 +33,7 @@
                   </div>
                 </div>
                 @endif
-            
+
                 <div class="row">
                   <label class="col-sm-2 col-form-label" for="title">{{ __('Title') }}</label>
                   <div class="col-sm-7">
@@ -45,23 +45,23 @@
                     </div>
                   </div>
                 </div>
-                 <div class="row">
+                <div class="row">
                   <label class="col-sm-2 col-form-label" for="model">{{ __('Model') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('model') ? ' has-danger' : '' }}">
                       <select class="form-control{{ $errors->has('model') ? ' is-invalid' : '' }}" type="text" name="model" id="model" placeholder="{{ __('Saleman Kg') }}" value="{{old('model', $vehicle->model)}}" required />
-                        <option value="">Select One</option>
-                        <?php for ($year=1900; $year <= 2050; $year++): ?>
-                        <option value="<?=$year;?>"><?=$year;?></option>
-                      <?php endfor; ?> 
-                    </select>
+                      <option value="">Select One</option>
+                      <?php for ($year = 1900; $year <= 2050; $year++) : ?>
+                        <option value="<?= $year; ?>"><?= $year; ?></option>
+                      <?php endfor; ?>
+                      </select>
                       @if ($errors->has('model'))
                       <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('model') }}</span>
                       @endif
                     </div>
                   </div>
                 </div>
-                 <div class="row">
+                <div class="row">
                   <label class="col-sm-2 col-form-label" for="description">{{ __('Description') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
@@ -73,33 +73,69 @@
                   </div>
                 </div>
 
+                <div class="row">
+                  <label class="col-sm-2 col-form-label" for="category_id">{{ __('Category') }}</label>
+                  <div class="col-sm-7">
+                    <div class="form-group{{ $errors->has('category_id') ? ' has-danger' : '' }}">
+                      <select class="form-control{{ $errors->has('category_id') ? ' is-invalid' : '' }}" type="text" name="category_id" id="category_id" required />
+                      @foreach ($categories as $category)
+                      <option value=" {{ $category->id }}" {{ $category->id == old("category_id", $vehicle->category_id) ? 'selected' : '' }}>
+                        {{ $category->title}}
+                      </option>
+                      @endforeach
+                      </select>
+                      @if ($errors->has('category_id'))
+                      <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('category_id') }}</span>
+                      @endif
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="row">
+                  <label class="col-sm-2 col-form-label" for="company_id">{{ __('Company') }}</label>
+                  <div class="col-sm-7">
+                    <div class="form-group{{ $errors->has('company_id') ? ' has-danger' : '' }}">
+                      <select class="form-control{{ $errors->has('company_id') ? ' is-invalid' : '' }}" type="text" name="company_id" id="category_id" required />
+                      @foreach ($companies as $company)
+                      <option value=" {{ $company->id }}" {{ $company->id == old("company_id",$company->company_id) ? 'selected' : '' }}>
+                        {{ $company->title}}
+                      </option>
+                      @endforeach
+                      </select>
+                      @if ($errors->has('company_id'))
+                      <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('company_id') }}</span>
+                      @endif
+                    </div>
+                  </div>
+                </div>
 
                 {{-- <div class="row">
                   <label class="col-sm-2 col-form-label" for="images">{{ __('Select image') }}</label>
-                  <div class="col-sm-7">
+                <div class="col-sm-7">
                   <input class='images-uplaod' type="file" name="images" />
-                  </div>
-                </div> --}}
-             </div>
-           </div>
-     <div class="card-footer ml-auto mr-auto ">
-              <div class="row">
-                <div class="col-4">
-                  <a href="{{route('vehicle.index')}}" class="btn btn-primary">{{ __('Cancel')}}</a>
                 </div>
-                <div class="col-4 text-center">
-                </div>
-                <div class="col-4  text-right">
-                  <button type="submit" class="btn btn-primary">{{ ($vehicle->id)? __('Update'): __('Create') }}</button>
-                </div>
-
-              </div>
-
+              </div> --}}
             </div>
-          </form>
       </div>
+      <div class="card-footer ml-auto mr-auto ">
+        <div class="row">
+          <div class="col-4">
+            <a href="{{route('vehicle.index')}}" class="btn btn-primary">{{ __('Cancel')}}</a>
+          </div>
+          <div class="col-4 text-center">
+          </div>
+          <div class="col-4  text-right">
+            <button type="submit" class="btn btn-primary">{{ ($vehicle->id)? __('Update'): __('Create') }}</button>
+          </div>
+
+        </div>
+
+      </div>
+      </form>
     </div>
   </div>
+</div>
 </div>
 @endsection
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Company;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
@@ -31,7 +33,9 @@ class VehicleController extends Controller
     public function create()
     {
         $vehicle = new Vehicle();
-        return view('vehicle.edit', compact('vehicle'));
+        $categories = Category::all();
+        $companies = Company::all();
+        return view('vehicle.edit', compact('vehicle', 'categories', 'companies'));
     }
 
     /**
@@ -70,7 +74,9 @@ class VehicleController extends Controller
      */
     public function edit(Vehicle $vehicle)
     {
-        return view('vehicle.edit', compact('vehicle'));
+        $categories = Category::all();
+        $companies = Company::all();
+        return view('vehicle.edit', compact('vehicle', 'categories', 'companies'));
     }
 
     /**
