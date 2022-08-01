@@ -32,6 +32,15 @@ Route::middleware('auth:' . config('application-auth.auth.guard'))
 
 
 
+        Route::prefix('companies')
+            ->as('company.')
+            ->group(function () {
+
+                Route::get('list')
+                    ->uses('CompanyController@index')
+                    ->name('list');
+            });
+
         //flights and users searches 
         // Route::prefix('flight')
         //     ->as('flight.')
