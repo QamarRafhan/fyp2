@@ -28,13 +28,14 @@ class RegisterRequest extends FormRequest
      */
     public function rules()
     {
+        // dd('test');
         return [
-            'username' => [
-                'sometimes',
-                'string',
-                'between:3,255',
-                Rule::unique('users', 'username'),
-            ],
+            // 'username' => [
+            //     'sometimes',
+            //     'string',
+            //     'between:3,255',
+            //     Rule::unique('users', 'username'),
+            // ],
             'avatar' => [
                 'sometimes',
                 'nullable',
@@ -46,7 +47,8 @@ class RegisterRequest extends FormRequest
             ],
             'email' => [
                 'required',
-                'email'
+                'email',
+                Rule::unique('users', 'email')
                 // 'email:strict,spoof,dns',
             ],
             'password' => [
@@ -79,7 +81,7 @@ class RegisterRequest extends FormRequest
     public function attributes()
     {
         return [
-            'username' => ucfirst(trans('application-auth::user.username')),
+            // 'username' => ucfirst(trans('application-auth::user.username')),
             'avatar' => ucfirst(trans('application-auth::user.avatar')),
             'name' => ucfirst(trans('application-auth::user.name')),
             'email' => ucfirst(trans('application-auth::user.email')),

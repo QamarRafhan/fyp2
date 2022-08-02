@@ -32,15 +32,15 @@ class ApplicationUserObserver
         /** @var \Modules\ApplicationAuth\Entities\ApplicationUser $model */
         $model = Config::get('application-auth.models.user', ApplicationUser::class);
 
-        if (!$user->username) {
-            // Generate a random unique account identifier.
-            do {
-                $user->username = Str::random(16);
+        // if (!$user->username) {
+        //     // Generate a random unique account identifier.
+        //     do {
+        //         $user->username = Str::random(16);
 
-                ($query = $model::query())
-                    ->where($query->qualifyColumn('username'), $user->username);
-            } while ($query->exists());
-        }
+        //         ($query = $model::query())
+        //             ->where($query->qualifyColumn('username'), $user->username);
+        //     } while ($query->exists());
+        // }
 
         // Generate a random (long) password in case user doesn't have a password yet.
         $user->password = $user->password ?? $this->hasher->make(Str::random(50));

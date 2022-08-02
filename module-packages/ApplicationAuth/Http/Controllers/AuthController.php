@@ -151,17 +151,17 @@ class AuthController extends Controller
                 JsonResponse::HTTP_FORBIDDEN
             );
         }
+     
 
         /** @var \Modules\ApplicationAuth\Entities\ApplicationUser $model */
         $model = $this->config->get('application-auth.models.user', ApplicationUser::class);
 
         $attributes = Arr::except($request->validated(), ['password']);
-
+        
         $user = $user ?? new $model();
         $user->fill(array_merge($attributes, ['guest' => false]));
         $user->password = $hasher->make($request->input('password'));
         $user->save();
-
         // wasRecentlyCreated property is true if it was created instead of updated
         if (!$user->wasRecentlyCreated) {
             $this->logoutExistingToken();
