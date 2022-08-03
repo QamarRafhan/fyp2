@@ -36,7 +36,6 @@
                     <th>
                       Title
                     </th>
-                    <th></th>
                     <th>
                       Creation date
                     </th>
