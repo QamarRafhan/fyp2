@@ -46,22 +46,6 @@
                   </div>
                 </div>
                 <div class="row">
-                  <label class="col-sm-2 col-form-label" for="model">{{ __('Model') }}</label>
-                  <div class="col-sm-7">
-                    <div class="form-group{{ $errors->has('model') ? ' has-danger' : '' }}">
-                      <select class="form-control{{ $errors->has('model') ? ' is-invalid' : '' }}" type="text" name="model" id="model" placeholder="{{ __('Saleman Kg') }}" value="{{old('model', $vehicle->model)}}" required />
-                      <option value="">Select One</option>
-                      <?php for ($year = 1900; $year <= 2050; $year++) : ?>
-                        <option value="<?= $year; ?>"><?= $year; ?></option>
-                      <?php endfor; ?>
-                      </select>
-                      @if ($errors->has('model'))
-                      <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('model') }}</span>
-                      @endif
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
                   <label class="col-sm-2 col-form-label" for="description">{{ __('Description') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">

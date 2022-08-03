@@ -38,9 +38,6 @@
                     </th>
                     <th></th>
                     <th>
-                      Description
-                    </th>
-                    <th>
                       Creation date
                     </th>
                     <th class="text-right">
@@ -54,16 +51,6 @@
                   <tr>
                     <td>
                       {{$single->title}}
-                    </td>
-                    <td>
-                      @if($single->images)
-                      @foreach ($single->images as $single_image)
-                      <img width="100" src="{{($single_image->getFullUrl()) }}">
-                      @endforeach
-                      @endif
-                    </td>
-                    <td>
-                      {{ ucfirst($single->description) }}
                     </td>
                     <td>
                       {{$single->created_at}}

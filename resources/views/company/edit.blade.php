@@ -49,21 +49,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <label class="col-sm-2 col-form-label" for="description">{{ __('Description') }}</label>
-                                <div class="col-sm-7">
-                                    <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
-                                        <input class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}"
-                                            type="description" name="description" id="description"
-                                            placeholder="{{ __('Description') }}"
-                                            value="{{ old('description', $company->description) }}" required />
-                                        @if ($errors->has('description'))
-                                            <span id="name-error" class="error text-danger"
-                                                for="input-name">{{ $errors->first('description') }}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="card-footer ml-auto mr-auto ">

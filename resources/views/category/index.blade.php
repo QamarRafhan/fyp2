@@ -37,9 +37,6 @@
                       Title
                     </th>
                     <th>
-                      Description
-                    </th>
-                    <th>
                       Creation date
                     </th>
                     <th class="text-right">
@@ -54,10 +51,6 @@
                     <td>
                       {{$single->title}}
                     </td>
-                     <td>
-                      {{ ucfirst($single->description) }}
-                    </td>
-                  
                     <td>
                       {{$single->created_at}}
                     </td>

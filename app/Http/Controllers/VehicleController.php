@@ -15,8 +15,10 @@ class VehicleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, Vehicle $model)
+
     {
-        return view('vehicle.index', [
+        $model->load(['company', 'category']);
+                return view('vehicle.index', [
             'vehicles' => $model->paginate(
                 $request->has('per_page') ?
                     $request->input('per_page') :

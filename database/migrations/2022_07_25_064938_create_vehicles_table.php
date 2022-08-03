@@ -17,7 +17,8 @@ class CreateVehiclesTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('description')->nullable();
-            $table->bigInteger('model')->nullable();
+            $table->bigInteger('category_id')->nullable();
+            $table->bigInteger('company_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -34,14 +34,6 @@
               </div>  
             </div>
              <div class="row">
-              <label class="col-sm-2 col-form-label  text-primary">Description</label>
-              <div class="col-sm-7">
-                <div class="form-group bmd-form-group is-filled">
-                  <p>{{$company->description}}</p>
-                </div>
-              </div> 
-            </div>
-             <div class="row">
               <label class="col-sm-2 col-form-label  text-primary">Creation date</label>
               <div class="col-sm-7">
                 <div class="form-group bmd-form-group is-filled">
