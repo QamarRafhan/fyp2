@@ -44,7 +44,10 @@ class CategoryController extends Controller
     {
         $category = new Category();
 
+
+        
         $data = $request->only($category->getFillable());
+        
         $category->fill($data);
         $category->save();
         return back()->withStatusSuccess(__('Category created successfully.'));
@@ -85,6 +88,7 @@ class CategoryController extends Controller
     {
         $data = $request->only($category->getFillable());
 
+        // dd($data);
         $category->fill($data);
         $category->save();
 
