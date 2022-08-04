@@ -40,21 +40,6 @@ class Customer extends Model
     }
 
 
-    /**
-     * Get the record of Variation of the product
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany|App\Models\ProductVariation
-     */
-    public function variations(): HasMany
-    {
-        return $this
-            ->hasMany(
-                ProductVariation::class,
-                'p_id',
-                'id',
-                'variations'
-            );
-    }
 
      /**
      * Get the record of payments of the Customer

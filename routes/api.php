@@ -46,7 +46,7 @@ Route::middleware('auth:' . config('application-auth.auth.guard'))
             ->group(function () {
 
                 Route::get('list')
-                    ->uses('CompanyController@index')
+                    ->uses('VehicleController@index')
                     ->name('list');
             });
 
