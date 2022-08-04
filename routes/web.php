@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('category', 'CategoryController');
 	Route::resource('company', 'CompanyController');
 	Route::resource('vehicle', 'VehicleController');
-	Route::resource('problem', 'ProblemController');
+
 	Route::resource('repairing_requet', 'RepairingRequetsController');
+	Route::resource('{vehicle}/problem', 'ProblemController');
 });

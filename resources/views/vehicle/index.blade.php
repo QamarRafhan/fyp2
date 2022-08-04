@@ -90,7 +90,7 @@
                                                     {{ $single->created_at }}
                                                 </td>
                                                 <td class="td-actions text-right">
-
+                                                <a href="{{route('problem.index', ['vehicle'=> $single->id])}}" class="btn btn-primary">{{ __('Problems')}}</a>
                                                     <a rel="tooltip" class="btn btn-success btn-link"
                                                         href="{{ route('vehicle.edit', ['vehicle' => $single->id]) }}"
                                                         data-original-title="" title="">

@@ -117,30 +117,7 @@
         </div>
       </li>
 
-      <li class="nav-item {{ ($activePage == 'problem-management' || $activePage == 'problem.create') ? ' active' : '' }}">
-        <a class="nav-link" data-toggle="collapse" href="#sidebar-Problem" aria-expanded="{{ ($activePage == 'problem-management' || $activePage == 'problem.create') ? 'true' : 'false' }}">
-          <i class="material-icons">bug_report</i>
-          <p>{{ __('Common Problems') }}
-            <b class="caret"></b>
-          </p>
-        </a>
-        <div class="collapse {{ ($activePage == 'problem-management' || $activePage == 'problem.create')? ' show' : '' }} " id="sidebar-Problem">
-          <ul class="nav">
-            <li class="nav-item{{ $activePage == 'problem-management' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('problem.index') }}">
-                <span class="sidebar-mini"> AP </span>
-                <span class="sidebar-normal"> {{ __('ALL Problems') }} </span>
-              </a>
-            </li>
-            <li class="nav-item{{ $activePage == 'problem.create' ? ' active' : '' }}">
-              <a class="nav-link" href="{{ route('problem.create') }}">
-                <span class="sidebar-mini"> AP </span>
-                <span class="sidebar-normal"> {{ __('Add Problem') }} </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
+    
 
       <li class="nav-item {{ ($activePage == 'repairingRequets-management' || $activePage == 'repairingRequets.create') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#sidebar-RepairingRequets" aria-expanded="{{ ($activePage == 'repairingRequets-management' || $activePage == 'repairingRequets.create') ? 'true' : 'false' }}">

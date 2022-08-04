@@ -8,11 +8,11 @@
       <div class="col-md-12">
 
         @if($problem->id)
-        <form method="post" action="{{ route('problem.update', ['problem' => $problem->id]) }}" class="form-horizontal"  enctype="multipart/form-data">
+        <form method="post" action="{{ route('problem.update', ['problem' => $problem->id, 'vehicle' => $vehicle_id]) }}" class="form-horizontal" enctype="multipart/form-data">
           @method('PUT')
 
           @else
-          <form method="post" action="{{ route('problem.store') }}" class="form-horizontal"  enctype="multipart/form-data">
+          <form method="post" action="{{ route('problem.store', ['vehicle' => $vehicle_id]) }}" class="form-horizontal" enctype="multipart/form-data">
             @endif
             @csrf
             <div class="card ">
@@ -33,7 +33,7 @@
                   </div>
                 </div>
                 @endif
-            
+
                 <div class="row">
                   <label class="col-sm-2 col-form-label" for="title">{{ __('Title') }}</label>
                   <div class="col-sm-7">
@@ -45,8 +45,8 @@
                     </div>
                   </div>
                 </div>
-    
-                 <div class="row">
+
+                <div class="row">
                   <label class="col-sm-2 col-form-label" for="description">{{ __('Description') }}</label>
                   <div class="col-sm-7">
                     <div class="form-group{{ $errors->has('description') ? ' has-danger' : '' }}">
@@ -69,35 +69,12 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <label class="col-sm-2 col-form-label" for="vehicle_id">{{ __('Vehicle') }}</label>
-                  <div class="col-sm-7">
-                      <div class="form-group{{ $errors->has('vehicle_id') ? ' has-danger' : '' }}">
-                          <select class="form-control{{ $errors->has('vehicle_id') ? ' is-invalid' : '' }}"
-                              type="text" name="vehicle_id" id="category_id" required />
-                          @foreach ($vehicles as $vehicle)
-                              <option value=" {{ $vehicle->id }}"
-                                  {{ $vehicle->id == old('vehicle_id', $problem->vehicle_id) ? 'selected' : '' }}>
-                                  {{ $vehicle->title }}
-                              </option>
-                          @endforeach
-                          </select>
-                          @if ($errors->has('vehicle_id'))
-                              <span id="name-error" class="error text-danger"
-                                  for="input-name">{{ $errors->first('vehicle_id') }}</span>
-                          @endif
-                      </div>
-                  </div>
               </div>
-
-
-               
-             </div>
-           </div>
-     <div class="card-footer ml-auto mr-auto ">
+            </div>
+            <div class="card-footer ml-auto mr-auto ">
               <div class="row">
                 <div class="col-4">
-                  <a href="{{route('problem.index')}}" class="btn btn-primary">{{ __('Cancel')}}</a>
+                  <a href="{{route('problem.index',['vehicle'=> $vehicle_id])}}" class="btn btn-primary">{{ __('Cancel')}}</a>
                 </div>
                 <div class="col-4 text-center">
                 </div>

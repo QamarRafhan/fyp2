@@ -13,16 +13,18 @@ class ProblemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, Problem $model)
+    public function index(Request $request, $vehicle_id,  Problem $model)
     {
+
+        $query =  $model->where('vehicle_id', $vehicle_id);
         return view('problem.index', [
-            'problems' => $model->paginate(
+            'problems' => $query->paginate(
                 $request->has('per_page') ?
                     $request->input('per_page') :
                     config('app.global.record_per_page')
-            )
+            ),
+            'vehicle_id' => $vehicle_id
         ]);
-        
     }
 
     /**
@@ -30,11 +32,11 @@ class ProblemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($vehicle_id)
     {
         $problem = new Problem();
-        $vehicles =Vehicle::all();
-        return view('problem.edit', compact('problem','vehicles'));
+        $vehicles = Vehicle::all();
+        return view('problem.edit', compact('problem', 'vehicles', 'vehicle_id'));
     }
 
     /**
@@ -43,10 +45,11 @@ class ProblemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $vehicle_id)
     {
         $problem = new Problem();
         $data = $request->only($problem->getFillable());
+        $data['vehicle_id'] = $vehicle_id;
         $problem->fill($data);
         $problem->save();
         return back()->withStatusSuccess(__('Problem created successfully.'));
@@ -58,7 +61,7 @@ class ProblemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Problem $problem)
+    public function show(Problem $problem, $vehicle_id)
     {
 
         return view('problem.view', ["problem" => $problem]);
@@ -70,10 +73,10 @@ class ProblemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Problem $problem)
+    public function edit(Problem $problem, $vehicle_id)
     {
-        $vehicles =Vehicle::all();
-        return view('problem.edit', compact('problem','vehicles'));
+        $vehicles = Vehicle::all();
+        return view('problem.edit', compact('problem', 'vehicles', 'vehicle_id'));
     }
 
     /**
