@@ -30,11 +30,8 @@ class MediaResource extends JsonResource
             'mime_type' => $this->mime_type,
             'size' => $this->size,
             'url' => $this->getUrlFor(),
-            // 'responsive' => $this->generateResponsiveImageUrls(''),
             'conversions' => $this->generateConversions(),
-            'expires_at' => $this->when($this->useTemporaryUrl(), fn () => Carbon::now()->addHour()->timestamp),
-            'created_at' => optional($this->created_at)->toISO8601ZuluString(),
-            'updated_at' => optional($this->updated_at)->toISO8601ZuluString(),
+            
         ];
     }
 
