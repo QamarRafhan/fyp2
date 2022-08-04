@@ -37,7 +37,7 @@
                       Title
                     </th>
                     <th>
-                      image
+                      Image
                     <th>
                       Creation date
                     </th>
