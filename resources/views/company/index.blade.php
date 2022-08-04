@@ -37,6 +37,9 @@
                       Title
                     </th>
                     <th>
+                      Image
+                    </th>
+                    <th>
                       Creation date
                     </th>
                     <th class="text-right">
@@ -50,6 +53,16 @@
                   <tr>
                     <td>
                       {{$single->title}}
+                    </td>
+                    <td>
+                      @php
+                      $image = $single->images->first();
+                      @endphp
+                      @if($image)
+
+                      <img width="100" src="{{($image->getFullUrl()) }}">
+                      
+                      @endif
                     </td>
                     <td>
                       {{$single->created_at}}

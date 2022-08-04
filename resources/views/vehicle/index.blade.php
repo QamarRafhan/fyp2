@@ -37,6 +37,9 @@
                                                 Title
                                             </th>
                                             <th>
+                                                Image
+                                            </th>
+                                            <th>
                                                 Description
                                             </th>
                                             <th>
@@ -61,6 +64,16 @@
                                                     {{ $single->title }}
                                                 </td>
                                                 <td>
+                                                    @php
+                                                    $image = $single->images->first();
+                                                    @endphp
+                                                    @if($image)
+                              
+                                                    <img width="100" src="{{($image->getFullUrl()) }}">
+                                                    
+                                                    @endif
+                                                  </td>
+                                                <td>
                                                     {{ ucfirst($single->description) }}
                                                 </td>
 
@@ -72,6 +85,7 @@
                                                 <td>
                                                     {{ ucfirst($single->company ? $single->company->title : '') }}
                                                 </td>
+                                                
                                                 <td>
                                                     {{ $single->created_at }}
                                                 </td>

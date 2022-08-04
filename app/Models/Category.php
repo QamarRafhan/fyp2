@@ -17,7 +17,6 @@ class Category extends Model implements HasMedia
     /** @var array */
     protected $fillable = [
         'title',
-        'description',
         'images'
     ];
 
