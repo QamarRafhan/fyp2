@@ -37,6 +37,8 @@
                       Title
                     </th>
                     <th>
+                      image
+                    <th>
                       Creation date
                     </th>
                     <th class="text-right">
@@ -52,10 +54,20 @@
                       {{$single->title}}
                     </td>
                     <td>
+                      @php
+                      $image = $single->images->first();
+                      @endphp
+                      @if($image)
+
+                      <img width="100" src="{{($image->getFullUrl()) }}">
+                      
+                      @endif
+                    </td>
+                    <td>
                       {{$single->created_at}}
                     </td>
                     <td class="td-actions text-right">
-                 
+
                       <a rel="tooltip" class="btn btn-success btn-link" href="{{route('category.edit', ['category'=> $single->id])}}" data-original-title="" title="">
                         <i class="material-icons">edit</i>
                         <div class="ripple-container"></div>
