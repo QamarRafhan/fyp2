@@ -28,6 +28,7 @@ class VehicleController extends Controller
         if ($request->has('company_id')) {
             $query->where('company_id', $request->company_id);
         }
+
         /** @var App\Http\Resources\CompanyResource */
         return VehicleResource::collection(
             $query->paginate(
