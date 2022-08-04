@@ -22,7 +22,12 @@ class VehicleController extends Controller
     {
         /** @var \App\Models\Vehicle */
         $query = Vehicle::query();
-
+        if ($request->has('category_id')) {
+            $query->where('category_id', $request->category_id);
+        }
+        if ($request->has('company_id')) {
+            $query->where('company_id', $request->company_id);
+        }
         /** @var App\Http\Resources\CompanyResource */
         return VehicleResource::collection(
             $query->paginate(

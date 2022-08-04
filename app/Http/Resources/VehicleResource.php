@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Resources\MediaResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class VehicleResource extends JsonResource
@@ -17,7 +18,9 @@ class VehicleResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'problems' => ProblemResource::collection($this->problems), 
+            'images' => $this->images_media ?
+                MediaResource::collection($this->images_media) : null,
+            'problems' => ProblemResource::collection($this->problems),
         ];
     }
 }
