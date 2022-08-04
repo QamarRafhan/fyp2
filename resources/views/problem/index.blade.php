@@ -44,6 +44,9 @@
                                                 Video
                                             </th>
                                             <th>
+                                                Vehicle
+                                            </th>
+                                            <th>
                                                 Creation date
                                             </th>
                                             <th class="text-right">
@@ -70,6 +73,9 @@
                                                 </td>
                                                 <td>
                                                     {{ ucfirst($single->video_url) }}
+                                                </td>
+                                                <td>
+                                                    {{ ucfirst($single->vehicle ? $single->vehicle->title : '') }}
                                                 </td>
                                                 <td>
                                                     {{ $single->created_at }}

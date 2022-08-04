@@ -18,6 +18,7 @@ class CreateProblemsTable extends Migration
             $table->string('title')->nullable();
             $table->string('description')->nullable();
             $table->string('video_url')->nullable();
+            $table->string('vehicle_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

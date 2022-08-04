@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Problem;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class ProblemController extends Controller
@@ -32,7 +33,8 @@ class ProblemController extends Controller
     public function create()
     {
         $problem = new Problem();
-        return view('problem.edit', compact('problem'));
+        $vehicles =Vehicle::all();
+        return view('problem.edit', compact('problem','vehicles'));
     }
 
     /**
@@ -70,7 +72,8 @@ class ProblemController extends Controller
      */
     public function edit(Problem $problem)
     {
-        return view('problem.edit', compact('problem'));
+        $vehicles =Vehicle::all();
+        return view('problem.edit', compact('problem','vehicles'));
     }
 
     /**

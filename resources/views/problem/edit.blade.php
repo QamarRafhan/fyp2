@@ -69,7 +69,27 @@
                     </div>
                   </div>
                 </div>
-              
+                <div class="row">
+                  <label class="col-sm-2 col-form-label" for="vehicle_id">{{ __('Vehicle') }}</label>
+                  <div class="col-sm-7">
+                      <div class="form-group{{ $errors->has('vehicle_id') ? ' has-danger' : '' }}">
+                          <select class="form-control{{ $errors->has('vehicle_id') ? ' is-invalid' : '' }}"
+                              type="text" name="vehicle_id" id="category_id" required />
+                          @foreach ($vehicles as $vehicle)
+                              <option value=" {{ $vehicle->id }}"
+                                  {{ $vehicle->id == old('vehicle_id', $problem->vehicle_id) ? 'selected' : '' }}>
+                                  {{ $vehicle->title }}
+                              </option>
+                          @endforeach
+                          </select>
+                          @if ($errors->has('vehicle_id'))
+                              <span id="name-error" class="error text-danger"
+                                  for="input-name">{{ $errors->first('vehicle_id') }}</span>
+                          @endif
+                      </div>
+                  </div>
+              </div>
+
 
                
              </div>
