@@ -20,6 +20,9 @@ class CreateApplicationUsersTable extends Migration
                 $table->string('locale', 15)->default('en');
                 $table->string('name');
                 $table->string('email')->unique();
+                $table->string('latitude')->nullable();
+                $table->string('longitude')->nullable();
+                $table->string('status')->nullable();
                 $table->timestamp('email_verified_at')->nullable();
                 $table->string('password');
                 $table->string('reset_password_token')->nullable();
@@ -28,6 +31,7 @@ class CreateApplicationUsersTable extends Migration
                 $table->string('role')->nullable();
                 $table->boolean('is_active')->default(true);
                 $table->boolean('allow_notifications')->default(true);
+                $table->bigInteger('category_id')->nullable();
                 $table->timestamps();
                 $table->softDeletes();
             }
