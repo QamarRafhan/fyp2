@@ -57,6 +57,9 @@ Route::middleware('auth:' . config('application-auth.auth.guard'))
                 Route::get('list')
                     ->uses('RepairingRequest@index')
                     ->name('list');
+                Route::post('save')
+                    ->uses('RepairingRequest@store')
+                    ->name('save');
             });
 
 

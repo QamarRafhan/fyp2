@@ -31,6 +31,53 @@ class RepairingRequest extends Controller
                     config('app.global.record_per_page')
             )
         );
-    }
-}
 
+
+         /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\RepairingRequetRequest  $request
+     * @return \Illuminate\Http\RepairingRequetResource
+     */
+    public function store(RepairingRequetStore $request): RepairingRequetResource
+    {
+        // $this->authorize('create', RepairingRequet::class);
+        return DB::transaction(function () use ($request) {
+            $attributes = $request->validated();
+            $repairingRequest = RepairingRequet::create($attributes);
+            /** @var  App\Http\Resources\ProductResource */
+            return RepairingRequetResource::make($repairingRequest);
+        });
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  RepairingRequet  $repairingRequest
+     * @return \Illuminate\Http\RepairingRequetResource
+     */
+    public function show(RepairingRequet $repairingRequest): RepairingRequetResource
+    {
+        return RepairingRequetResource::make($repairingRequest);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\RepairingRequetStore  $request
+     * @param  RepairingRequet  $repairingRequest
+     * @return \Illuminate\Http\Response
+     */
+    public function update(RepairingRequetStore $request, RepairingRequet $repairingRequest): RepairingRequetResource
+    {
+        return DB::transaction(function () use ($request, $repairingRequest) {
+            $attributes = $request->validated();
+            $repairingRequest->fill($attributes);
+            $repairingRequest->save();
+              $repairingRequest->refresh();
+            /** @var  App\Http\Resources\RepairingRequetResource */
+            return RepairingRequetResource::make($repairingRequest);
+        });
+    }
+    
+}
