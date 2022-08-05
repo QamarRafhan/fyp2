@@ -50,6 +50,16 @@ Route::middleware('auth:' . config('application-auth.auth.guard'))
                     ->name('list');
             });
 
+        Route::prefix('repairing_request')
+            ->as('repairingRequest.')
+            ->group(function () {
+
+                Route::get('list')
+                    ->uses('RepairingRequest@index')
+                    ->name('list');
+            });
+
+
 
         //flights and users searches 
         // Route::prefix('flight')
