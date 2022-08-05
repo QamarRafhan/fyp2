@@ -55,10 +55,10 @@ Route::middleware('auth:' . config('application-auth.auth.guard'))
             ->group(function () {
 
                 Route::get('list')
-                    ->uses('RepairingRequest@index')
+                    ->uses('RepairingRequestController@index')
                     ->name('list');
                 Route::post('save')
-                    ->uses('RepairingRequest@store')
+                    ->uses('RepairingRequestController@store')
                     ->name('save');
             });
 

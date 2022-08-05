@@ -2,16 +2,75 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\Vehicle;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class RepairingRequet extends Model
 {
     use HasFactory;
-     /** @var array */
-     protected $fillable = [
+    /** @var array */
+    protected $fillable = [
         'title',
         'description',
         'video_url',
     ];
+
+
+
+
+    /**
+   
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category(): BelongsTo
+    {
+        return $this
+            ->belongsTo(
+                Category::class
+            );
+    }
+
+    /**
+   
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function vehicle(): BelongsTo
+    {
+        return $this
+            ->belongsTo(
+                Vehicle::class
+            );
+    }
+
+    /**
+   
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function customer(): BelongsTo
+    {
+        return $this
+            ->belongsTo(
+                User::class,
+                'id',
+                'customer_id'
+            );
+    }
+
+    /**
+   
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function mechanic(): BelongsTo
+    {
+        return $this
+            ->belongsTo(
+                User::class,
+                'id',
+                'mechanic_ic'
+            );
+    }
 }

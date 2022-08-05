@@ -11,7 +11,7 @@ use App\Http\Requests\Api\RepairingRequetStore;
 use App\Http\Resources\RepairingRequestResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-class RepairingRequest extends Controller
+class RepairingRequestController extends Controller
 {
 
     /**

@@ -18,6 +18,7 @@ class CreateRepairingRequetsTable extends Migration
             $table->string('title')->nullable();
             $table->string('description')->nullable();
             $table->string('video_url')->nullable();
+            $table->tinyInteger('status')->default(1);
             $table->unsignedBigInteger('customer_id')->nullable();
             $table->unsignedBigInteger('mechanic_id')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();

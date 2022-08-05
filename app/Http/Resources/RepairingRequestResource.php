@@ -2,6 +2,9 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Resources\VehicleResource;
+use App\Http\Resources\CategoryResource;
+use App\Http\Resources\UserNameResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class RepairingRequestResource extends JsonResource
@@ -17,7 +20,20 @@ class RepairingRequestResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'video_url' => $this->url
+            'description' => $this->description,
+            'video_url' => $this->video_url,
+            'status' => $this->status,
+            'category' => CategoryResource::collection($this->category),
+            'vehicle' => VehicleResource::collection($this->vehicle),
+            'customer' => UserNameResource::collection($this->customer),
+            'mechanic' => UserNameResource::collection($this->mechanic),
         ];
     }
+
+
+
+
 }
+
+
+

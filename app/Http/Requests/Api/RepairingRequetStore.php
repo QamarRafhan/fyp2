@@ -6,15 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class RepairingRequetStore extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return false;
-    }
+   
 
     /**
      * Get the validation rules that apply to the request.
@@ -24,7 +16,15 @@ class RepairingRequetStore extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => [
+                'required',
+                'between:3,255',
+               
+            ],
+            'contactPerson' => [
+                'required', 
+                'between:3,255',
+            ]
         ];
     }
 }
