@@ -20,8 +20,19 @@ class User extends ApplicationUser
      */
     protected $fillable = [
         'name',
+        'locale',
         'email',
+        'email_verified_at',
         'password',
+        'reset_password_token',
+        'reset_password_token_expires',
+        'guest',
+        'avatar',
+        'allow_notifications',
+        'latitude',
+        'longitude',
+        'status',
+        'category_id'
     ];
 
     /**

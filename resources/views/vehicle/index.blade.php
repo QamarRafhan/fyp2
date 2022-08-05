@@ -39,9 +39,7 @@
                                             <th>
                                                 Image
                                             </th>
-                                            <th>
-                                                Description
-                                            </th>
+                                          
                                             <th>
                                                 Category
                                             </th>
@@ -73,10 +71,7 @@
                                                     
                                                     @endif
                                                   </td>
-                                                <td>
-                                                    {{ ucfirst($single->description) }}
-                                                </td>
-
+                                               
                                                 <td>
                                                     {{ ucfirst($single->category ? $single->category->title : '') }}
                                                 </td>

@@ -80,7 +80,11 @@ class ApplicationUser extends Authenticatable implements JWTSubject, HasMedia
         'reset_password_token_expires',
         'guest',
         'avatar',
-        'allow_notifications'
+        'allow_notifications',
+        'latitude',
+        'longitude',
+        'status',
+        'category_id'
     ];
 
     protected $attributes = [
