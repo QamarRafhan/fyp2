@@ -14,10 +14,16 @@ class RepairingRequet extends Model
     use HasFactory;
     /** @var array */
     protected $fillable = [
+        'id',
         'title',
         'description',
         'video_url',
+        'customer_id',
+        'mechanic_id',
+        'category_id',
+        'vehicle_id'
     ];
+
 
 
 

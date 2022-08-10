@@ -20,11 +20,8 @@ class RepairingRequetStore extends FormRequest
                 'required',
                 'between:3,255',
                
-            ],
-            'contactPerson' => [
-                'required', 
-                'between:3,255',
             ]
+           
         ];
     }
 }
