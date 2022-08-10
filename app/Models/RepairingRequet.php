@@ -8,6 +8,7 @@ use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class RepairingRequet extends Model
 {
@@ -20,7 +21,8 @@ class RepairingRequet extends Model
         'customer_id',
         'mechanic_id',
         'category_id',
-        'vehicle_id'
+        'vehicle_id',
+        'status'
     ];
 
 
@@ -73,8 +75,18 @@ class RepairingRequet extends Model
         return $this
             ->belongsTo(
                 User::class,
-        
                 'mechanic_id'
+            );
+    }
+
+    public function payments(): HasOne
+    {
+        return $this
+            ->hasOne(
+                Payment::class,
+                'rr_id',
+                'id',
+                'payments'
             );
     }
 }

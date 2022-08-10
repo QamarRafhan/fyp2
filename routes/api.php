@@ -61,6 +61,16 @@ Route::middleware('auth:' . config('application-auth.auth.guard'))
                     ->uses('RepairingRequestController@store')
                     ->name('save');
             });
+
+
+        Route::prefix('payment')
+            ->as('payment.')
+            ->group(function () {
+
+                Route::post('pay')
+                    ->uses('PaymentController@store')
+                    ->name('store');
+            });
         Route::prefix('mechanic')
             ->as('mechanic.')
             ->group(function () {
@@ -74,6 +84,9 @@ Route::middleware('auth:' . config('application-auth.auth.guard'))
                     ->uses('MechanicController@store')
                     ->name('store');
             });
+
+
+
 
 
 

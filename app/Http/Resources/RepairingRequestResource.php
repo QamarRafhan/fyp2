@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Resources\PaymentResource;
 use App\Http\Resources\VehicleResource;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\UserNameResource;
@@ -27,6 +28,7 @@ class RepairingRequestResource extends JsonResource
             'vehicle' => new VehicleResource($this->vehicle),
             'customer' => new UserNameResource($this->customer),
             'mechanic' => new  UserNameResource($this->mechanic),
+            'payment' => new  PaymentResource($this->payments),
         ];
     }
 }
