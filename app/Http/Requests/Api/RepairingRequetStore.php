@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class RepairingRequetStore extends FormRequest
 {
-   
+
 
     /**
      * Get the validation rules that apply to the request.
@@ -16,12 +16,35 @@ class RepairingRequetStore extends FormRequest
     public function rules()
     {
         return [
-            'name' => [
-                'required',
-                'between:3,255',
-               
-            ]
-           
+            'title' => [
+                'required'
+
+            ],
+            'description' => [
+                'required'
+
+            ],
+            'video_url' => [
+                'sometimes'
+
+            ],
+            'customer_id' => [
+                'sometimes'
+
+            ],
+            'mechanic_id' => [
+                'sometimes'
+
+            ],
+            'category_id' => [
+                'sometimes'
+
+            ],
+            'vehicle_id' => [
+                'sometimes'
+
+            ],
+
         ];
     }
 }

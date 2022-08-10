@@ -23,17 +23,10 @@ class RepairingRequestResource extends JsonResource
             'description' => $this->description,
             'video_url' => $this->video_url,
             'status' => $this->status,
-            'category' => CategoryResource::collection($this->category),
-            'vehicle' => VehicleResource::collection($this->vehicle),
-            'customer' => UserNameResource::collection($this->customer),
-            'mechanic' => UserNameResource::collection($this->mechanic),
+            'category' => new CategoryResource($this->category),
+            'vehicle' => new VehicleResource($this->vehicle),
+            'customer' => new UserNameResource($this->customer),
+            'mechanic' => new  UserNameResource($this->mechanic),
         ];
     }
-
-
-
-
 }
-
-
-

@@ -60,7 +60,6 @@ class RepairingRequet extends Model
         return $this
             ->belongsTo(
                 User::class,
-                'id',
                 'customer_id'
             );
     }
@@ -74,8 +73,8 @@ class RepairingRequet extends Model
         return $this
             ->belongsTo(
                 User::class,
-                'id',
-                'mechanic_ic'
+        
+                'mechanic_id'
             );
     }
 }
