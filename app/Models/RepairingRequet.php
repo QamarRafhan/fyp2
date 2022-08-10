@@ -14,7 +14,6 @@ class RepairingRequet extends Model
     use HasFactory;
     /** @var array */
     protected $fillable = [
-        'id',
         'title',
         'description',
         'video_url',

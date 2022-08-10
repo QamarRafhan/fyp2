@@ -32,7 +32,8 @@ class User extends ApplicationUser
         'latitude',
         'longitude',
         'status',
-        'category_id'
+        'category_id',
+        'role'
     ];
 
     /**

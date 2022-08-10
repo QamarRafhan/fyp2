@@ -84,7 +84,8 @@ class ApplicationUser extends Authenticatable implements JWTSubject, HasMedia
         'latitude',
         'longitude',
         'status',
-        'category_id'
+        'category_id',
+        'role'
     ];
 
     protected $attributes = [

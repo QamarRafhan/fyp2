@@ -50,7 +50,7 @@ Route::middleware('auth:' . config('application-auth.auth.guard'))
                     ->name('list');
             });
 
-        Route::prefix('repairing_request')
+        Route::prefix('repairingRequest')
             ->as('repairingRequest.')
             ->group(function () {
 
@@ -60,6 +60,19 @@ Route::middleware('auth:' . config('application-auth.auth.guard'))
                 Route::post('save')
                     ->uses('RepairingRequestController@store')
                     ->name('save');
+            });
+        Route::prefix('mechanic')
+            ->as('mechanic.')
+            ->group(function () {
+
+                Route::get('list')
+                    ->uses('MechanicController@index')
+                    ->name('list');
+
+
+                Route::post('change_data')
+                    ->uses('MechanicController@store')
+                    ->name('store');
             });
 
 

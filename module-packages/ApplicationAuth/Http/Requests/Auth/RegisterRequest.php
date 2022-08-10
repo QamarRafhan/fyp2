@@ -58,6 +58,10 @@ class RegisterRequest extends FormRequest
                 'max:10485760',
                 'confirmed',
             ],
+            'role' => [
+                'required'
+             
+            ],
         ];
     }
 
