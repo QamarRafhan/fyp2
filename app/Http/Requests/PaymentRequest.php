@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class PaymentRequest extends FormRequest
 {
-   
+
 
     /**
      * Get the validation rules that apply to the request.
@@ -18,11 +18,15 @@ class PaymentRequest extends FormRequest
         return [
             'rr_id' => [
                 'required',
-            
+
             ],
             'amount' => [
                 'required',
-    
+
+            ],
+            'card_nubmer' => [
+
+                'required',
             ]
 
         ];
