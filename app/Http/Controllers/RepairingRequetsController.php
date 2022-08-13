@@ -14,6 +14,11 @@ class RepairingRequetsController extends Controller
      */
     public function index(Request $request, RepairingRequet $model)
     {
+
+        // $model = RepairingRequet::query();
+
+        // \DB::connection()->enableQueryLog();
+        $model->load(['customer', 'mechanic']);
         return view('repairingRequet.index', [
             'repairingRequets' => $model->paginate(
                 $request->has('per_page') ?
@@ -21,6 +26,9 @@ class RepairingRequetsController extends Controller
                     config('app.global.record_per_page')
             )
         ]);
+        // $queries = \DB::getQueryLog();
+        // return dd($queries);
+
     }
 
     /**

@@ -41,7 +41,13 @@
                       Description
                     </th>
                     <th>
-                      Video
+                      Customer
+                    </th>
+                    <th>
+                      Mechanic
+                    </th>
+                    <th>
+                      Status
                     </th>
                     <th>
                       Creation date
@@ -69,29 +75,33 @@
                       {{ ucfirst($single->description) }}
                     </td>
                     <td>
-                      {{ ucfirst($single->video_url) }}
+                      {{ ucfirst($single->customer?$single->customer->name: '' ) }}
+                    </td>
+
+                    <td>
+                      {{ ucfirst($single->mechanic?$single->mechanic->name: '' ) }}
+                    </td>
+                    <td>
+                      {{ ucfirst($single->status ) }}
                     </td>
                     <td>
                       {{$single->created_at}}
                     </td>
                     <td class="td-actions text-right">
 
-                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('repairing_requet.edit', ['repairing_requet'=> $single->id])}}" data-original-title="" title="">
-                        <i class="material-icons">edit</i>
-                        <div class="ripple-container"></div>
-                      </a>
+
                       <a rel="tooltip" class="btn btn-success btn-link" href="{{route('repairing_requet.show', ['repairing_requet'=> $single->id])}}" data-original-title="" title="">
                         <i class="material-icons">visibility</i>
                         <div class="ripple-container"></div>
                       </a>
-                      <form action="{{route('repairing_requet.destroy', ['repairing_requet' =>$single->id])}}" method="post" class="d-inline-block">
+                      <!-- <form action="{{route('repairing_requet.destroy', ['repairing_requet' =>$single->id])}}" method="post" class="d-inline-block">
                         <button type="submit" rel="tooltip" class="btn btn-success btn-link" data-original-title="" title="">
                           <i class="material-icons">delete</i>
                           <div class="ripple-container"></div>
                         </button>
                         @method('delete')
                         @csrf
-                      </form>
+                      </form> -->
                     </td>
 
                   </tr>
