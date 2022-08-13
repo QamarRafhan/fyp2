@@ -33,11 +33,11 @@ class RepairingRequetStore extends FormRequest
 
             ],
             'mechanic_id' => [
-                'sometimes'
+                'required'
 
             ],
             'category_id' => [
-                'sometimes'
+                'required'
 
             ],
             'vehicle_id' => [
