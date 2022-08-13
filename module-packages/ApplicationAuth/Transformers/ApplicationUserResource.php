@@ -27,7 +27,7 @@ class ApplicationUserResource extends JsonResource
             'avatar' => ($avatar = $this->avatar)
                 ? MediaResource::make($avatar)
                 : null,
-            'guest' => $this->guest,
+            'role' => $this->role,
             'allow_notifications' => $this->allow_notifications
         ];
     }

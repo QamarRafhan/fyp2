@@ -22,22 +22,22 @@ class RepairingRequetStore extends FormRequest
             ],
             'description' => [
                 'required'
-
             ],
-            'video_url' => [
-                'sometimes'
 
-            ],
             'customer_id' => [
-                'sometimes'
+                'required'
 
             ],
             'mechanic_id' => [
                 'required'
 
             ],
+            'video_url' => [
+                'sometimes'
+
+            ],
             'category_id' => [
-                'required'
+                'sometimes'
 
             ],
             'vehicle_id' => [
