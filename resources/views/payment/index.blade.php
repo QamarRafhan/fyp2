@@ -61,10 +61,10 @@
                       {{ ucfirst($single->amount) }}
                     </td>
                     <td>
-                      {{$single->repairingRequet->customer->name }}
+                      {{$single->repairingRequet?->customer?->name }}
                     </td>
                     <td>
-                      {{$single->repairingRequet->customer->name }}
+                      {{$single->repairingRequet?->customer?->name }}
                     </td>
 
                     <td>
