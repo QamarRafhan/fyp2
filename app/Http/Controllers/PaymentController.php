@@ -44,7 +44,7 @@ class PaymentController extends Controller
     {
         $payment = new Payment();
         $customers = Customer::all();
-        $banks = Banking::all();
+      
         // dd( $banks);
         return view('payment.edit', compact('payment', 'customer', 'customers', 'banks'));
     }
