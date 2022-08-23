@@ -42,4 +42,5 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::resource('repairing_requet', 'RepairingRequetsController');
 	Route::resource('{vehicle}/problem', 'ProblemController');
+	Route::resource('payment', 'PaymentController');
 });

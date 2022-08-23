@@ -24,11 +24,11 @@
               </div>
             </div>
             @endif
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-12 text-right">
                 <a href="{{route('repairing_requet.create')}}" class="btn btn-sm btn-primary">Add Repairing Requet</a>
               </div>
-            </div>
+            </div> -->
             <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary">

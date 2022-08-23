@@ -24,27 +24,23 @@
               </div>
             </div>
             @endif
-            <div class="row">
-              <div class="col-12 text-right">
-                <a href="{{route('payment.create', ['customer' =>  $customer->id])}}" class="btn btn-sm btn-primary">Add Payment</a>
-              </div>
-            </div>
+
             <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary">
                   <tr>
-                    <th>
-                      Payment Method
-                    </th>
+
                     <th>
                       Amount
                     </th>
-
                     <th>
-                      Tax Deducted
+                      Customer
                     </th>
                     <th>
-                      Bank Name
+                      Mechanic
+                    </th>
+                    <th>
+                      Reparing Request
                     </th>
                     <th>
                       Date
@@ -59,36 +55,32 @@
 
                   @foreach ($payments as $single)
                   <tr>
-                    <td>
-                      {{ucfirst($single->payment_mothod)}}
-                    </td>
 
 
                     <td>
                       {{ ucfirst($single->amount) }}
                     </td>
                     <td>
-                      {{$single->tax_deducted==1?"No": "Yes" }}
+                      {{$single->repairingRequet->customer->name }}
                     </td>
                     <td>
-                      {{$single->bank?$single->bank->acc_name:"" }}
+                      {{$single->repairingRequet->customer->name }}
                     </td>
+
                     <td>
-                      {{ $single->date?$single->date->format('d-m-Y'):'' }}
+
+                    <a href="{{route('repairing_requet.show' , ['repairing_requet' => $single->repairingRequet->id])}}" class=""> Repairing Requet</a>
+                      
+                    </td> 
+
+                    <td>
+                      {{ $single->created_at?$single->created_at->format('d-m-Y'):'' }}
 
                     </td>
 
                     <td class="td-actions text-right">
 
-                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('payment.edit',  ['customer' =>  $customer->id, 'payment'=> $single->id])}}" data-original-title="" title="">
-                        <i class="material-icons">edit</i>
-                        <div class="ripple-container"></div>
-                      </a>
-                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('payment.show',  ['customer' =>  $customer->id, 'payment'=> $single->id])}}" data-original-title="" title="">
-                        <i class="material-icons">visibility</i>
-                        <div class="ripple-container"></div>
-                      </a>
-                      <form action="{{route('payment.destroy',  ['customer' =>  $customer->id, 'payment' =>$single->id])}}" method="post" class="d-inline-block">
+                      <form action="{{route('payment.destroy',  [ 'payment' =>$single->id])}}" method="post" class="d-inline-block">
                         <button type="submit" rel="tooltip" class="btn btn-success btn-link" data-original-title="" title="">
                           <i class="material-icons">delete</i>
                           <div class="ripple-container"></div>

@@ -117,7 +117,7 @@
         </div>
       </li>
 
-    
+
 
       <li class="nav-item {{ ($activePage == 'repairingRequets-management' || $activePage == 'repairingRequets.create') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#sidebar-RepairingRequets" aria-expanded="{{ ($activePage == 'repairingRequets-management' || $activePage == 'repairingRequets.create') ? 'true' : 'false' }}">
@@ -134,15 +134,37 @@
                 <span class="sidebar-normal"> {{ __('ALL Repairing Requets') }} </span>
               </a>
             </li>
-            <li class="nav-item{{ $activePage == 'repairingRequets.create' ? ' active' : '' }}">
+            <!-- <li class="nav-item{{ $activePage == 'repairingRequets.create' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('repairing_requet.create') }}">
                 <span class="sidebar-mini"> AC </span>
                 <span class="sidebar-normal"> {{ __('Add Repairing Requet') }} </span>
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </li>
+
+      <li class="nav-item {{ ($activePage == 'payment-management' )? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#payment-management" aria-expanded="{{ ($activePage == 'payment-management' ) ? 'true' : 'false' }}">
+          <i class="material-icons">handyman</i>
+          <p>{{ __('Payments') }}
+            <b class="caret"></b>
+          </p>
+        </a>
+        <div class="collapse {{ ($activePage == 'payment-management')? ' show' : '' }} " id="payment-management">
+          <ul class="nav">
+            <li class="nav-item{{ $activePage == 'payment-management' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('payment.index') }}">
+                <span class="sidebar-mini"> AC </span>
+                <span class="sidebar-normal"> {{ __('ALL Payments') }} </span>
+              </a>
+            </li>
+           
+          </ul>
+        </div>
+      </li>
+
+
     </ul>
   </div>
 </div>
