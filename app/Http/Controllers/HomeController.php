@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Company;
+use App\Models\RepairingRequet;
+use App\Models\User;
+use App\Models\Vehicle;
+
 class HomeController extends Controller
 {
     /**
@@ -21,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $total_cat = Category::all()->count();
+        $total_vehicle = Vehicle::all()->count();
+        $total_user = User::all()->count();
+        $total_company = Company::all()->count();
+        return view('dashboard', compact('total_cat', 'total_vehicle', 'total_user', 'total_company'));
     }
 }

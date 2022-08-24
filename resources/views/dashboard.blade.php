@@ -10,15 +10,15 @@
               <div class="card-icon">
                 <i class="material-icons">content_copy</i>
               </div>
-              <p class="card-category">Total Products</p>
-              <h3 class="card-title">50
+              <p class="card-category">Total Categories</p>
+              <h3 class="card-title">{{$total_cat}}
                 <small></small>
               </h3>
             </div>
             <div class="card-footer">
               <div class="stats">
                 <!-- <i class="material-icons ">warning</i> -->
-                <a href="#pablo">Active 40</a>
+                <!-- <a href="#pablo">Active 40</a> -->
               </div>
             </div>
           </div>
@@ -29,12 +29,12 @@
               <div class="card-icon">
                 <i class="material-icons">store</i>
               </div>
-              <p class="card-category">Revenue</p>
-              <h3 class="card-title">$34,245</h3>
+              <p class="card-category">Total User</p>
+              <h3 class="card-title">{{$total_user}}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">date_range</i> Last 24 Hours
+                <!-- <i class="material-icons">date_range</i> Last 24 Hours -->
               </div>
             </div>
           </div>
@@ -45,14 +45,13 @@
               <div class="card-icon">
                 <i class="material-icons">info_outline</i>
               </div>
-              <p class="card-category">Total Users</p>
-              <h3 class="card-title">75</h3>
+              <p class="card-category">Total Vehicles</p>
+              <h3 class="card-title">{{$total_vehicle}}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">people_outline</i> 
-                Tracked
-              </div>
+                <!-- <i class="material-icons">people_outline</i>  -->
+                            </div>
             </div>
           </div>
         </div>
@@ -60,14 +59,15 @@
           <div class="card card-stats">
             <div class="card-header card-header-info card-header-icon">
               <div class="card-icon">
-                <i class="fa fa-twitter"></i>
+              <i class="fa fa-building-o" aria-hidden="true"></i>
+
               </div>
-              <p class="card-category">Followers</p>
-              <h3 class="card-title">+245</h3>
+              <p class="card-category">Total Companies</p>
+              <h3 class="card-title">{{$total_company}}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">update</i> Just Updated
+                <!-- <i class="material-icons">update</i> Just Updated -->
               </div>
             </div>
           </div>

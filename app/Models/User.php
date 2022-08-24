@@ -117,7 +117,7 @@ class User extends ApplicationUser
         $collections = [
             [
                 'collection' => self::COLLECTION_NAME,
-                'limit' => 1
+                'limit' => 2
             ]
         ];
         $this->handleRegisterMediaCollections($collections);
