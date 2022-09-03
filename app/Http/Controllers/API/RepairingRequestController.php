@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\RepairingRequetStore;
 use App\Http\Resources\RepairingRequestResource;
+use App\Models\User;
+use App\Notifications\RepairingRequestNotification;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Support\Facades\Notification;
 
 class RepairingRequestController extends Controller
 {
@@ -51,8 +54,10 @@ class RepairingRequestController extends Controller
     {
         // $this->authorize('create', RepairingRequet::class);
         return DB::transaction(function () use ($request) {
+            $userSchema = User::first();
             $attributes = $request->validated();
             $repairingRequest = RepairingRequet::create($attributes);
+            Notification::send($userSchema, new RepairingRequestNotification($repairingRequest));
             /** @var  App\Http\Resources\RepairingRequestResource */
             return RepairingRequestResource::make($repairingRequest);
         });
