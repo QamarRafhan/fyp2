@@ -60,7 +60,7 @@ class RepairingRequestNotification extends Notification
      
         return [
            
-            'id' => $this->repairingRequest['id']
+            'id' => $this->repairingRequest['id'],
         
             
         ];

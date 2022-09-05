@@ -85,96 +85,48 @@ Route::middleware('auth:' . config('application-auth.auth.guard'))
                     ->name('store');
             });
 
+        // Notifications
+        Route::prefix('notification')
+            ->as('notification.')
+            ->group(function () {
 
+                Route::get('/list')
+                    ->uses('NotificationController@index')
+                    ->name('index');
 
+                Route::get('read')
+                    ->uses('NotificationController@getReadNotifications')
+                    ->name('read');
 
+                Route::get('unread')
+                    ->uses('NotificationController@getUnreadNotifications')
+                    ->name('unread');
 
+                Route::get('unread/count')
+                    ->uses('NotificationController@getUnreadNotificationsCount')
+                    ->name('unread.count');
 
-        //flights and users searches 
-        // Route::prefix('flight')
-        //     ->as('flight.')
-        //     ->group(function () {
+                Route::post('subscribe')
+                    ->uses('NotificationController@subscribe')
+                    ->name('subscribe');
 
-        //         Route::get('list')
-        //             ->uses('FlightController@index')
-        //             ->name('list');
-        //         Route::get('detail/{flight?}')
-        //             ->uses('FlightController@show')
-        //             ->name('show');
-        //         Route::get('detail-by-no/{flight:flight_no?}')
-        //             ->uses('FlightController@getOperator')
-        //             ->name('detail');
-        //     });
+                Route::post('unsubscribe')
+                    ->uses('NotificationController@unsubscribe')
+                    ->name('unsubscribe');
 
+                Route::post('mark-all-as-read')
+                    ->uses('NotificationController@markAllAsRead')
+                    ->name('mark-all-as-read');
 
+                Route::post('mark-as-read/{id}')
+                    ->uses('NotificationController@markAsRead')
+                    ->name('mark-as-read');
 
-        // // Booking
-        // Route::prefix('booking')
-        //     ->as('booking.')
-        //     ->group(function () {
-        //         Route::get('list')
-        //             ->uses('BookingController@index')
-        //             ->name('list');
-        //         Route::post('save')
-        //             ->uses('BookingController@store')
-        //             ->name('save');
-
-        //         Route::get('{booking?}')
-        //             ->uses('BookingController@show')
-        //             ->name('show');
-
-        //         Route::put('{booking}')
-        //             ->uses('BookingController@update')
-        //             ->name('update');
-
-        //         Route::delete('{booking}')
-        //             ->uses('BookingController@destroy')
-        //             ->name('delete');
-        //     });
-
-
-        // // Notifications
-        // Route::prefix('notification')
-        //     ->as('notification.')
-        //     ->group(function () {
-
-        //         Route::get('/')
-        //             ->uses('NotificationController@index')
-        //             ->name('index');
-
-        //         Route::get('read')
-        //             ->uses('NotificationController@getReadNotifications')
-        //             ->name('read');
-
-        //         Route::get('unread')
-        //             ->uses('NotificationController@getUnreadNotifications')
-        //             ->name('unread');
-
-        //         Route::get('unread/count')
-        //             ->uses('NotificationController@getUnreadNotificationsCount')
-        //             ->name('unread.count');
-
-        //         Route::post('subscribe')
-        //             ->uses('NotificationController@subscribe')
-        //             ->name('subscribe');
-
-        //         Route::post('unsubscribe')
-        //             ->uses('NotificationController@unsubscribe')
-        //             ->name('unsubscribe');
-
-        //         Route::post('mark-all-as-read')
-        //             ->uses('NotificationController@markAllAsRead')
-        //             ->name('mark-all-as-read');
-
-        //         Route::post('mark-as-read/{id}')
-        //             ->uses('NotificationController@markAsRead')
-        //             ->name('mark-as-read');
-
-        //         Route::post('destroy')
-        //             ->uses('NotificationController@destroy')
-        //             ->name('destroy');
-        //         Route::post('destroyAll')
-        //             ->uses('NotificationController@destroyAll')
-        //             ->name('destroyAll');
-        //     });
+                Route::post('destroy')
+                    ->uses('NotificationController@destroy')
+                    ->name('destroy');
+                Route::post('destroyAll')
+                    ->uses('NotificationController@destroyAll')
+                    ->name('destroyAll');
+            });
     });

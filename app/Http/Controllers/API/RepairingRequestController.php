@@ -33,7 +33,7 @@ class RepairingRequestController extends Controller
         } else {
             $query->where('customer_id', $request->user()->id);
         }
-    
+
         /** @var App\Http\Resources\RepairingRequestResource */
         return RepairingRequestResource::collection(
             $query->paginate(
@@ -54,10 +54,10 @@ class RepairingRequestController extends Controller
     {
         // $this->authorize('create', RepairingRequet::class);
         return DB::transaction(function () use ($request) {
-            $userSchema = User::first();
+            $user = User::first($request->mechanic_id);
             $attributes = $request->validated();
             $repairingRequest = RepairingRequet::create($attributes);
-            Notification::send($userSchema, new RepairingRequestNotification($repairingRequest));
+            Notification::send($user, new RepairingRequestNotification($repairingRequest));
             /** @var  App\Http\Resources\RepairingRequestResource */
             return RepairingRequestResource::make($repairingRequest);
         });
