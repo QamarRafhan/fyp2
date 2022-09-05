@@ -54,7 +54,7 @@ class RepairingRequestController extends Controller
     {
         // $this->authorize('create', RepairingRequet::class);
         return DB::transaction(function () use ($request) {
-            $user = User::first($request->mechanic_id);
+            $user = User::where('id', $request->mechanic_id);
             $attributes = $request->validated();
             $repairingRequest = RepairingRequet::create($attributes);
             Notification::send($user, new RepairingRequestNotification($repairingRequest));
