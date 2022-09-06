@@ -109,6 +109,6 @@ class RepairingRequetsController extends Controller
     public function destroy(RepairingRequet $repairingRequet)
     {
         $repairingRequet->delete();
-        return redirect()->route('repairingRequet.index')->withStatusSuccess(__('RepairingRequet deleted successfully.'));
+        return redirect()->route('repairing_requet.index')->withStatusSuccess(__('RepairingRequet deleted successfully.'));
     }
 }

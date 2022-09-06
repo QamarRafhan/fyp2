@@ -94,14 +94,14 @@
                         <i class="material-icons">visibility</i>
                         <div class="ripple-container"></div>
                       </a>
-                      <!-- <form action="{{route('repairing_requet.destroy', ['repairing_requet' =>$single->id])}}" method="post" class="d-inline-block">
+                      <form action="{{route('repairing_requet.destroy', ['repairing_requet' =>$single->id])}}" method="post" class="d-inline-block">
                         <button type="submit" rel="tooltip" class="btn btn-success btn-link" data-original-title="" title="">
                           <i class="material-icons">delete</i>
                           <div class="ripple-container"></div>
                         </button>
                         @method('delete')
                         @csrf
-                      </form> -->
+                      </form>
                     </td>
 
                   </tr>
