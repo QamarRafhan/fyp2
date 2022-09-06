@@ -28,7 +28,7 @@ class RepairingRequestController extends Controller
         /** @var \App\Models\Category */
         $query = RepairingRequet::query();
 
-        if ($request->user()->role == 'mechanic') {
+        if ($request->user()->role == 'Mechanic') {
             $query->where('mechanic_id', $request->user()->id);
         } else {
             $query->where('customer_id', $request->user()->id);

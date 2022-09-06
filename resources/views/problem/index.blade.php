@@ -85,15 +85,15 @@
                                         </td>
                                         <td class="td-actions text-right">
 
-                                            <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('problem.edit', ['problem' => $single->id, 'vehicle' => 1]) }}" data-original-title="" title="">
+                                            <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('problem.edit', ['problem' => $single->id, 'vehicle' => $single->vehicle_id]) }}" data-original-title="" title="">
                                                 <i class="material-icons">edit</i>
                                                 <div class="ripple-container"></div>
                                             </a>
-                                            <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('problem.show', ['problem' => $single->id, 'vehicle' => 1]) }}" data-original-title="" title="">
+                                            <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('problem.show', ['problem' => $single->id, 'vehicle' => $single->vehicle_id]) }}" data-original-title="" title="">
                                                 <i class="material-icons">visibility</i>
                                                 <div class="ripple-container"></div>
                                             </a>
-                                            <form action="{{ route('problem.destroy', ['problem' => $single->id, 'vehicle' => 1]) }}" method="post" class="d-inline-block">
+                                            <form action="{{ route('problem.destroy', ['problem' => $single->id, 'vehicle' => $single->vehicle_id]) }}" method="post" class="d-inline-block">
                                                 <button type="submit" rel="tooltip" class="btn btn-success btn-link" data-original-title="" title="">
                                                     <i class="material-icons">delete</i>
                                                     <div class="ripple-container"></div>

@@ -47,7 +47,7 @@
                       Mechanic
                     </th>
                     <th>
-                      Status
+                      Payment
                     </th>
                     <th>
                       Creation date
@@ -82,7 +82,7 @@
                       {{ ucfirst($single->mechanic?$single->mechanic->name: '' ) }}
                     </td>
                     <td>
-                      {{ ucfirst($single->status ) }}
+                      {{ ucfirst($single->payments?$single->payments->amount: '' ) }}
                     </td>
                     <td>
                       {{$single->created_at}}

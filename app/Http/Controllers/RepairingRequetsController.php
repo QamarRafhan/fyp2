@@ -16,7 +16,7 @@ class RepairingRequetsController extends Controller
     {
 
         // $model = RepairingRequet::query();
-        dd('test');
+        // dd('test');
         // \DB::connection()->enableQueryLog();
         $model->load(['customer', 'mechanic']);
         return view('repairingRequet.index', [

@@ -61,10 +61,10 @@ class ProblemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Problem $problem, $vehicle_id)
+    public function show(Vehicle $vehicle,  Problem $problem)
     {
 
-        return view('problem.view', ["problem" => $problem]);
+        return view('problem.view', ["problem" => $problem, "Vehicle" => $vehicle]);
     }
 
     /**
@@ -73,9 +73,10 @@ class ProblemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Problem $problem, $vehicle_id)
+    public function edit(Vehicle $vehicle,  Problem $problem)
     {
         $vehicles = Vehicle::all();
+        $vehicle_id = $vehicle->id;
         return view('problem.edit', compact('problem', 'vehicles', 'vehicle_id'));
     }
 
@@ -86,7 +87,7 @@ class ProblemController extends Controller
      * @param  Problem $problem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Problem $problem)
+    public function update(Request $request, Vehicle $vehicle, Problem $problem)
     {
         $data = $request->only($problem->getFillable());
 
@@ -103,9 +104,9 @@ class ProblemController extends Controller
      * @param  Problem $problem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Problem $problem)
+    public function destroy(Vehicle $vehicle, Problem $problem)
     {
         $problem->delete();
-        return redirect()->route('problem.index')->withStatusSuccess(__('Problem deleted successfully.'));
+        return redirect()->route('problem.index', ['vehicle' => $vehicle->id])->withStatusSuccess(__('Problem deleted successfully.'));
     }
 }
