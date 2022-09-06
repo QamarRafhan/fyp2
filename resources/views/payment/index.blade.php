@@ -61,20 +61,20 @@
                       {{ ucfirst($single->amount) }}
                     </td>
                     <td>
-                      {{$single->repairingRequet?->customer?->name }}
+                      {{$single->repairingRequet? ($single->repairingRequet->customer? $single->repairingRequet->customer->name : '') : '' }}
                     </td>
                     <td>
-                      {{$single->repairingRequet?->customer?->name }}
+                      {{$single->repairingRequet? ($single->repairingRequet->mechanic? $single->repairingRequet->mechanic->name : '') : '' }}
                     </td>
 
                     <td>
 
-                    <a href="{{route('repairing_requet.show' , ['repairing_requet' => $single->repairingRequet->id])}}" class=""> Repairing Requet</a>
-                      
-                    </td> 
+                      <a href="{{route('repairing_requet.show' , ['repairing_requet' => $single->repairingRequet->id])}}" class=""> Repairing Requet</a>
+
+                    </td>
 
                     <td>
-                      {{ $single->created_at?$single->created_at->format('d-m-Y'):'' }}
+                      {{ $single->created_at? $single->created_at->format('d-m-Y'):'' }}
 
                     </td>
 
