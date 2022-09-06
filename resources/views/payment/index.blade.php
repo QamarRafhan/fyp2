@@ -45,10 +45,10 @@
                     <th>
                       Date
                     </th>
-
+<!-- 
                     <th class="text-right">
                       Actions
-                    </th>
+                    </th> -->
                   </tr>
                 </thead>
                 <tbody>
@@ -78,7 +78,7 @@
 
                     </td>
 
-                    <td class="td-actions text-right">
+                    <!-- <td class="td-actions text-right">
 
                       <form action="{{route('payment.destroy',  [ 'payment' =>$single->id])}}" method="post" class="d-inline-block">
                         <button type="submit" rel="tooltip" class="btn btn-success btn-link" data-original-title="" title="">
@@ -88,7 +88,7 @@
                         @method('delete')
                         @csrf
                       </form>
-                    </td>
+                    </td> -->
                   </tr>
                   @endforeach
                 </tbody>
