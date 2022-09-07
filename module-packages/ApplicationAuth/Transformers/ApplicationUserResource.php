@@ -30,6 +30,8 @@ class ApplicationUserResource extends JsonResource
             'images' => $this->images_media ?
                 MediaResource::collection($this->images_media) : null,
             'role' => $this->role,
+            'rating' => $this->rating,
+            'price' => $this->price,
             'allow_notifications' => $this->allow_notifications
         ];
     }
