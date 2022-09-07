@@ -19,6 +19,8 @@ class MechanicResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'distance' => $this->distance,
+            'rating' => $this->rating,
+            'price' => $this->price,
             
         ];
     }
