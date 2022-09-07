@@ -38,7 +38,10 @@ class User extends ApplicationUser
         'status',
         'category_id',
         'role',
-        'images'
+        'images',
+        'status',
+        'rating',
+        'price',
     ];
 
     /**

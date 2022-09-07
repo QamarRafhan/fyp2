@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Http\Requests\UserRequest;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Tymon\JWTAuth\Http\Middleware\Authenticate;
 
 class UserController extends Controller
 {
@@ -28,5 +30,36 @@ class UserController extends Controller
                 $request->input('per_page') :
                 config('app.global.record_per_page')
         )]);
+    }
+    public function edit(User $user)
+    {
+        // dd($user);
+        return view('users.edit', compact('user'));
+    }
+    public function update(Request $request, User $user)
+    {
+        $data = $request->only($user->getFillable());
+        //  dd($request->all());
+        $user->fill($data);
+        $user->save();
+
+
+        return back()->withStatusSuccess(__('User Updated successfully.'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  Vehicle $vehicle
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(User $user)
+    {
+
+        if (Auth::User()->id != $user->id) {
+            $user->delete();
+            return redirect()->route('user.index')->withStatusSuccess(__('User deleted successfully.'));
+        }
+        abort(404);
     }
 }

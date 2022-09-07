@@ -64,10 +64,19 @@
                       {{$single->created_at}}
                     </td>
                     <td class="td-actions text-right">
-                      <a rel="tooltip" class="btn btn-success btn-link" href="#" data-original-title="" title="">
+                      <a rel="tooltip" class="btn btn-success btn-link" href="{{route('user.edit', ['user'=>$single->id])}}" data-original-title="" title="">
                         <i class="material-icons">edit</i>
                         <div class="ripple-container"></div>
                       </a>
+
+                      <form action="{{route('user.destroy', ['user' =>$single->id])}}" method="post" class="d-inline-block">
+                        <button type="submit" rel="tooltip" class="btn btn-success btn-link" data-original-title="" title="">
+                          <i class="material-icons">delete</i>
+                          <div class="ripple-container"></div>
+                        </button>
+                        @method('delete')
+                        @csrf
+                      </form>
                     </td>
                   </tr>
                   @endforeach
