@@ -40,6 +40,9 @@
                       Role
                     </th>
                     <th>
+                      Mobile Number
+                    </th>
+                    <th>
                       Creation date
                     </th>
                     <th class="text-right">
@@ -59,6 +62,9 @@
                     </td>
                     <td class="text-capitalize">
                       {{$single->role}}
+                    </td>
+                    <td class="text-capitalize">
+                      {{$single->contact_number}}
                     </td>
                     <td>
                       {{$single->created_at}}

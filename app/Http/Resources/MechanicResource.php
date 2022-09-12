@@ -21,7 +21,7 @@ class MechanicResource extends JsonResource
             'distance' => $this->distance,
             'rating' => $this->rating,
             'price' => $this->price,
-            
+            'contact_number' => $this->contact_number,
         ];
     }
 }

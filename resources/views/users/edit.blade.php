@@ -71,6 +71,17 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label" for="contact_number">{{ __('Contact Nmuber') }}</label>
+                                    <div class="col-sm-7">
+                                        <div class="form-group{{ $errors->has('contact_number') ? ' has-danger' : '' }}">
+                                            <input class="form-control{{ $errors->has('contact_number') ? ' is-invalid' : '' }}" type="text" name="contact_number" id="contact_number" placeholder="{{ __('Contact Nmuber') }}" value="{{ old('contact_number', $user->contact_number) }}" required />
+                                            @if ($errors->has('contact_number'))
+                                            <span id="contact_number-error" class="error text-danger" for="input-contact_number">{{ $errors->first('contact_number') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
                             <div class="card-footer ml-auto mr-auto ">

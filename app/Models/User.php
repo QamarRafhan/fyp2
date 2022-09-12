@@ -42,6 +42,7 @@ class User extends ApplicationUser
         'status',
         'rating',
         'price',
+        'contact_number'
     ];
 
     /**
