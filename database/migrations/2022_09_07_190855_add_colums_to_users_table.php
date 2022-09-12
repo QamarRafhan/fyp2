@@ -16,6 +16,7 @@ class AddColumsToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
                 $table->tinyInteger('rating')->nullable();
                 $table->float('price')->nullable();
+                $table->string('contact_number')->nullable();
         });
     }
 
@@ -27,7 +28,7 @@ class AddColumsToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['rating','price']);
+            $table->dropColumn(['rating','price','contact_number']);
         });
     }
 }
